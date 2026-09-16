@@ -256,8 +256,8 @@ int main()
 
     if (switch_1_pressed && switch_2_pressed) {
       // Both switches: blue
-      red_led.level(false);
-      green_led.level(false);
+      red_led.level(true);
+      green_led.level(true);
       blue_led.level(true);
     } else if (switch_1_pressed) {
       // S1 only: red
