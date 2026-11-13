@@ -176,3 +176,92 @@ of the assignment.
 - **[MSPM0G350x Technical Reference Manual](https://www.ti.com/lit/ug/slau846e/slau846e.pdf)** -
   ADC12, DMA, UART, CRC accelerator chapters, and the internal temperature
   sensor's calibration constants.
+
+## Local implementation and wiring
+
+All three drivers are register-level against the MSPM0G3507 register maps in
+`ti/devices/msp/msp.h` (the names match the TRM). No DriverLib function is
+called in `lab5_adc_uart_crc.cpp`.
+
+| Piece | Choice |
+| --- | --- |
+| ADC | ADC0 channel 11 (internal temperature sensor), 12-bit, VDDA reference, 20 us sample time, repeat-single conversion |
+| ADC DMA | DMA channel 1, triggered by MEMRES0; one block of 64 transfers per `read()`. The calling task sleeps on a task notification that the DMA interrupt gives |
+| UART | UART1, PA8 = TX, PA9 = RX, 115200 8N1 |
+| UART receive | DMA channel 0 in repeated-single mode filling a 256-byte ring forever; `receive_cursor()` = 256 - DMASZ |
+| CRC | CRC peripheral in CRC-32 mode with BITREVERSE (the reflected/zlib CRC-32), seed `0xFFFFFFFF`, final XOR in software, 32-bit word writes |
+| Timer | TIMG12 at 32 MHz, extended to 64 bits in its zero-event interrupt, for the CRC timing |
+| Sample encoding | `int16_t` in 0.01 degC, little-endian |
+| Reply packet | `0x5A` marker, 64 samples (128 bytes), CRC-32 of the samples (4 bytes, little-endian) |
+
+Temperature conversion (TRM "Temperature Sensor", datasheet 7.14 and 8.13):
+`TEMP_SENSE0` at `0x41C4003C` holds the 12-bit code at 30 degC measured with
+the 3.3 V VDDA reference (both test chips read 792 and 793). With the same
+reference for the samples, T = 30 + (code - TEMP_SENSE0) x (3.3 V / 4096) /
+(-1.8 mV/degC). One code is 0.45 degC, so each 0.01 degC sample resolves
+better than the required 0.5 degC.
+
+### Wiring between the two boards
+
+Both PA8 and PA9 are on header J1, the same column as PB9 (pin 7) and the
+Lab 4 I2C pins PB2/PB3 (pins 9 and 10). Count from the 3V3 end: pin 1 3V3,
+pin 2 PA25, **pin 3 PA9**, **pin 4 PA8**.
+
+| Board A | Board B |
+| --- | --- |
+| PA8 (J1.4, UART1 TX) | PA9 (J1.3, UART1 RX) |
+| PA9 (J1.3, UART1 RX) | PA8 (J1.4, UART1 TX) |
+| GND | GND |
+
+PB8/PB9 cannot be used for this link: they have no UART function, and on a
+board with the Lab 3 flash they are its SPI MOSI/clock lines. Keep J21 and
+J22 on pins 1-2 on both boards; they route UART0 (PA10/PA11) to the USB
+console.
+
+### Run and demonstrate
+
+1. Build each role. In CCS, set `this_device` in the `#else` branch and
+   rebuild. With the standalone tools, `bash tools/board/build.sh 5 sensor`
+   and `bash tools/board/build.sh 5 display` (the script passes
+   `-DLAB5_DEVICE_ROLE_DISPLAY` for the display image).
+2. Flash one board per role. If both XDS110s report the same serial number
+   (`MG350001` here), select them by USB port; see
+   [the board tools](../tools/board/README.md).
+3. Open both USB consoles at 115200. The sensor prints its `TEMP_SENSE0` and a
+   CRC self-test on `123456789` (`0xCBF43926` from both engines).
+4. Press S1 or S2 on the display board. The sensor prints the batch average,
+   the ADC+DMA time, and both CRC times; the display prints the average and
+   sets the LED: blue below 16 degC, yellow up to 25 degC, red from 25 degC.
+   A fingertip on the sensor board's MCU turns it red within a few presses.
+   The conversion uses the 3.3 V USB supply as its reference (as the factory
+   calibration does), so a sagging supply reads cold: at 3.09 V the boards
+   read about -2 degC. Healthy boards read 20-23 degC at rest.
+5. Hold S2 on the sensor board and press a button on the display board. The
+   sensor flips one payload bit after computing the CRC; the display prints
+   `CRC MISMATCH ... Packet dropped` and turns the LED magenta.
+
+### Hardware results (November 13, 2026)
+
+Both roles were flashed to two LP-MSPM0G3507 boards and run end to end.
+Button presses were simulated with the debugger (IOMUX input inversion on
+S1/S2, with [`simulate_presses.py`](evidence/2026-11-13/simulate_presses.py)); the
+console logs are in [`evidence/2026-11-13/`](evidence/2026-11-13/).
+
+- Normal request: CRC OK, average 23.02 degC, LED yellow.
+- Sensor S2 held: bit 74 flipped, display reported the mismatch, LED magenta.
+- Released: CRC OK again, LED yellow.
+- ADC+DMA: 1364 us for 64 samples (one DMA block, one task sleep).
+- CRC-32 over the 128-byte payload: hardware 27.0 us, software 309.4 us
+  (11x faster), identical results on every batch.
+
+Host tests for the conversion, packet format, and CRC bit-flip detection:
+
+```sh
+c++ -std=c++17 -Wall -Wextra -Werror -DLAB_HOST_TEST \
+  tests/lab5_device_test.cpp -o /tmp/lab5-device-tests
+/tmp/lab5-device-tests
+```
+
+Not verified: physical button presses (simulated only), the blue band (needs
+real cooling), and absolute temperature accuracy beyond the factory
+single-point trim.

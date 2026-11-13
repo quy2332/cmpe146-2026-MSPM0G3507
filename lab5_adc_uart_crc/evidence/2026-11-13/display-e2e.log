@@ -1,0 +1,21 @@
+[  0.05] 27.00, red otherwise (degC)
+[  0.05] 
+[  0.05] LaunchPad UART console: 115200 baud, 8N1
+[  0.05] 
+[  0.05] Lab 5: ADC + UART + CRC (FreeRTOS)
+[  0.05] Role: DISPLAY. UART1 115200 baud on PA8 (TX) / PA9 (RX)
+[  0.05] Press S1 or S2 to request a batch. Bands: blue < 20.00, yellow < 26.00, red otherwise (degC)
+[  1.36] 
+[  1.36] LaunchPad UART console: 115200 baud, 8N1
+[  1.36] 
+[  1.36] Lab 5: ADC + UART + CRC (FreeRTOS)
+[  1.36] 
+[  1.36] LaunchPad UART console: 115200 baud, 8N1
+[  1.36] 
+[  1.36] Lab 5: ADC + UART + CRC (FreeRTOS)
+[  1.36] Role: DISPLAY. UART1 115200 baud on PA8 (TX) / PA9 (RX)
+[  1.36] Press S1 or S2 to request a batch. Bands: blue < 20.00, yellow < 26.00, red otherwise (degC)
+[  4.12] Request 1: CRC 0x2D69F18A OK, avg 23.02 degC over 64 samples (min 22.39, max 23.73); LED yellow (warm)
+[  5.53] Request 2: CRC MISMATCH (received 0xF49BAB70, computed 0x85E3F409). Packet dropped; LED magenta (CRC error)
+[  6.88] Request 3: CRC 0xCE23D6BF OK, avg 22.07 degC over 64 samples (min 21.50, max 22.39); LED yellow (warm)
+[  8.24] Request 4: CRC 0x3F178A73 OK, avg 22.17 degC over 64 samples (min 21.94, max 22.84); LED yellow (warm)

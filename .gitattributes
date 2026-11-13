@@ -1,0 +1,4 @@
+# Raw hardware evidence must not undergo newline conversion.
+lab*/evidence/** -text
+lab*/evidence/**/*.bin binary
+lab*/evidence/**/*.sr binary
