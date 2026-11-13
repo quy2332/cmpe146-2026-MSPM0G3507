@@ -1,3 +1,6 @@
+# Preserve recorded hardware evidence byte-for-byte.
+exclude: ^lab[34]_[^/]+/evidence/
+
 repos:
   # General file fixes
   - repo: https://github.com/pre-commit/pre-commit-hooks

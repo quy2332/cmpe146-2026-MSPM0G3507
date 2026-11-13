@@ -1,0 +1,50 @@
+{
+  "test": "BMI160 Lab 4 physical board test",
+  "recorded_at_utc": "2026-11-10T22:26:42.255041+00:00",
+  "board": "LP-MSPM0G3507",
+  "probe": "MG350001",
+  "serial_port": "/dev/ttyACM0",
+  "baud": 115200,
+  "firmware_image_sha256": "1513fdacaaa971bef1a3a95911e48f1fa8288453fc06c2d852884b2b60f92848",
+  "sample_count": 2253,
+  "capture_seconds": 240.026,
+  "read_or_initialization_errors": 0,
+  "observed_ranges": {
+    "x": {
+      "min": -0.743,
+      "max": 1.464
+    },
+    "y": {
+      "min": -1.745,
+      "max": 0.849
+    },
+    "z": {
+      "min": -0.053,
+      "max": 1.564
+    },
+    "roll": {
+      "min": -91.7,
+      "max": 94.6
+    },
+    "pitch": {
+      "min": -84.4,
+      "max": 48.7
+    }
+  },
+  "last_10_seconds_mean": {
+    "x": -0.399,
+    "y": -0.953531914893617,
+    "z": 0.10809574468085106,
+    "roll": -83.53085106382979,
+    "pitch": 22.577659574468086,
+    "magnitude": 1.0392956636459723
+  },
+  "last_10_seconds_axis_std": {
+    "x": 0.004557871602885177,
+    "y": 0.004645965130376994,
+    "z": 0.002828689992540034
+  },
+  "reset_observed": true,
+  "valid_samples_after_reset": 356,
+  "scope": "Successful sensor initialization, continuous I2C register reads, physical tilt response, and restart recovery. No sensor calibration or logic-analyzer timing capture performed."
+}
