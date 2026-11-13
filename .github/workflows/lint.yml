@@ -22,3 +22,17 @@ jobs:
           python-version: "3.12"
       - run: sudo apt-get install -y doxygen
       - uses: pre-commit/action@v3.0.1
+
+  device-tests:
+    name: Device protocol tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile and run the available lab tests
+        run: |
+          for source in tests/lab*_device_test.cpp; do
+            executable="/tmp/$(basename "$source" .cpp)"
+            c++ -std=c++17 -Wall -Wextra -Werror -DLAB_HOST_TEST \
+              "$source" -o "$executable"
+            "$executable"
+          done

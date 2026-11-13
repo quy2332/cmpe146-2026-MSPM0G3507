@@ -1,0 +1,94 @@
+Write verified; next dump shows the stored bytes.
+00 31 32 33 34 35 36 37 38 39 41 42 43 44 45 46
+30 31 32 33 34 35 36 37 38 39 41 42 43 44 45 46
+Enter up to 32 text bytes in the console, then Enter
+(empty line skips writing): 00 31 32 33 34 35 36 37 38 39 41 42 43 44 45 46
+30 31 32 33 34 35 36 37 38 39 41 42 43 44 45 46
+Enter up to 32 text bytes in the console, then Enter
+(empty line skips writing): 00 31 32 33 34 35 36 37 38 39 41 42 43 44 45 46
+30 31 32 33 34 35 36 37 38 39 41 42 43 44 45 46
+Enter up to 32 text bytes in the console, then Enter
+(empty line skips writing): 00 31 32 33 34 35 36 37 38 39 41 42 43 44 45 46
+30 31 32 33 34 35 36 37 38 39 41 42 43 44 45 46
+Enter up to 32 text bytes in the console, then Enter
+(empty line skips writing): 00 31 32 33 34 35 36 37 38 39 41 42 43 44 45 46
+30 31 32 33 34 35 36 37 38 39 41 42 43 44 45 46
+Enter up to 32 text bytes in the console, then Enter
+(empty line skips writing): 00 31 32 33 34 35 36 37 38 39 41 42 43 44 45 46
+30 31 32 33 34 35 36 37 38 39 41 42 43 44 45 46
+Enter up to 32 text bytes in the console, then Enter
+(empty line skips writing): 00 31 32 33 34 35 36 37 38 39 41 42 43 44 45 46
+30 31 32 33 34 35 36 37 38 39 41 42 43 44 45 46
+Enter up to 32 text bytes in the console, then Enter
+(empty line skips writing): 00 31 32 33 34 35 36 37 38 39 41 42 43 44 45 46
+30 31 32 33 34 35 36 37 38 39 41 42 43 44 45 46
+Enter up to 32 text bytes in the console, then Enter
+(empty line skips writing): 00 31 32 33 34 35 36 37 38 39 41 42 43 44 45 46
+30 31 32 33 34 35 36 37 38 39 41 42 43 44 45 46
+Enter up to 32 text bytes in the console, then Enter
+(empty line skips writing): 00 31 32 33 34 35 36 37 38 39 41 42 43 44 45 46
+30 31 32 33 34 35 36 37 38 39 41 42 43 44 45 46
+Enter up to 32 text bytes in the console, then Enter
+(empty line skips writing): 00 31 32 33 34 35 36 37 38 39 41 42 43 44 45 46
+30 31 32 33 34 35 36 37 38 39 41 42 43 44 45 46
+Enter up to 32 text bytes in the console, then Enter
+(empty line skips writing): Write verified; next dump shows the stored bytes.
+30 31 32 33 34 35 36 37 38 39 41 42 43 44 45 46
+30 31 32 33 34 35 36 37 38 39 41 42 43 44 45 46
+Enter up to 32 text bytes in the console, then Enter
+(empty line skips writing): Write verified; next dump shows the stored bytes.
+6C 61 62 33 20 74 65 73 74 39 41 42 43 44 45 46
+30 31 32 33 34 35 36 37 38 39 41 42 43 44 45 46
+Enter up to 32 text bytes in the console, then Enter
+(empty line skips writing): Write verified; next dump shows the stored bytes.
+4C 41 42 33 20 54 45 53 54 39 41 42 43 44 45 46
+30 31 32 33 34 35 36 37 38 39 41 42 43 44 45 46
+Enter up to 32 text bytes in the console, then Enter
+(empty line skips writing): 4C 41 42 33 20 54 45 53 54 39 41 42 43 44 45 46
+30 31 32 33 34 35 36 37 38 39 41 42 43 44 45 46
+Enter up to 32 text bytes in the console, then Enter
+(empty line skips writing): More than 32 bytes: nothing written. Try again.
+4C 41 42 33 20 54 45 53 54 39 41 42 43 44 45 46
+30 31 32 33 34 35 36 37 38 39 41 42 43 44 45 46
+Enter up to 32 text bytes in the console, then Enter
+(empty line skips writing): Write verified; next dump shows the stored bytes.
+4C 41 42 33 20 50 41 53 53 3A 20 4D 53 50 4D 30
+47 33 35 30 37 20 53 50 49 20 46 4C 41 53 48 21
+Enter up to 32 text bytes in the console, then Enter
+(empty line skips writing): 
+LaunchPad UART console: 115200 baud, 8N1
+
+LaunchPad UART console: 115200 baud, 8N1
+SPI: 1000000 Hz
+Manufacturer: 0xEF
+Capacity: 4194304 bytes
+4C 41 42 33 20 50 41 53 53 3A 20 4D 53 50 4D 30
+47 33 35 30 37 20 53 50 49 20 46 4C 41 53 48 21
+Enter up to 32 text bytes in the console, then Enter
+(empty line skips writing): 
+LaunchPad UART console: 115200 baud, 8N1
+SPI: 1000000 Hz
+Manufacturer: 0xEF
+Capacity: 4194304 bytes
+4C 41 42 33 20 50 41 53 53 3A 20 4D 53 50 4D 30
+47 33 35 30 37 20 53 50 49 20 46 4C 41 53 48 21
+Enter up to 32 text bytes in the console, then Enter
+(empty line skips writing): 
+LaunchPad UART console: 115200 baud, 8N1
+
+LaunchPad UART console: 115200 baud, 8N1
+SPI: 1000000 Hz
+Manufacturer: 0xEF
+Capacity: 4194304 bytes
+4C 41 42 33 20 50 41 53 53 3A 20 4D 53 50 4D 30
+47 33 35 30 37 20 53 50 49 20 46 4C 41 53 48 21
+Enter up to 32 text bytes in the console, then Enter
+(empty line skips writing): 
+LaunchPad UART console: 115200 baud, 8N1
+SPI: 1000000 Hz
+Manufacturer: 0xEF
+Capacity: 4194304 bytes
+4C 41 42 33 20 50 41 53 53 3A 20 4D 53 50 4D 30
+47 33 35 30 37 20 53 50 49 20 46 4C 41 53 48 21
+Enter up to 32 text bytes in the console, then Enter
+(empty line skips writing): 

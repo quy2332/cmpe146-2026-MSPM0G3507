@@ -1,0 +1,6 @@
+spi-1: 
+spi-1: AB
+spi-1: 05 FF
+spi-1: 9F FF FF FF
+spi-1: 05 FF
+spi-1: 03 00 00 00 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
