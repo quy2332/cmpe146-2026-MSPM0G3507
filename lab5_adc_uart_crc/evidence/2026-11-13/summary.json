@@ -1,0 +1,53 @@
+{
+ "date": "2026-11-13",
+ "result": "PASS: request/response, valid-CRC color, and corrupted-packet detection on two LP-MSPM0G3507 boards",
+ "boards": {
+  "sensor": "USB port 3-1.1.4 (TRACEID 0x64e33a)",
+  "display": "USB port 3-1.1.2 (TRACEID 0x653fbe)"
+ },
+ "firmware_sha256": {
+  "lab5_adc_uart_crc/Debug/uart/lab5_adc_uart_crc_sensor.bin": "c991d370e412de269054649470e662fdae08102fd6d7bab1a9d1f22b22997ffd",
+  "lab5_adc_uart_crc/Debug/uart/lab5_adc_uart_crc_display.bin": "70708751be9420f7f0fc153e0df672060c266d4d712e845d575a37636ebc8cdd"
+ },
+ "toolchain": "TI ARM Clang 5.1.1.LTS, MSPM0 SDK 2.10.00.04, FreeRTOS from the SDK",
+ "link": "UART1 115200 8N1, PA8 TX / PA9 RX crossed between boards, common GND",
+ "temp_sense0": 792,
+ "adc_dma_us_per_64_samples": 1364,
+ "crc32_payload_bytes": 128,
+ "crc_hardware_ns": 27031,
+ "crc_software_ns": 309375,
+ "crc_self_test": "123456789 -> 0xCBF43926 from both engines",
+ "requests": [
+  {
+   "press": 1,
+   "sensor_S2": "released",
+   "display": "CRC OK, 23.02 degC",
+   "led": "yellow"
+  },
+  {
+   "press": 2,
+   "sensor_S2": "held",
+   "display": "CRC MISMATCH, packet dropped (bit 74 flipped)",
+   "led": "magenta"
+  },
+  {
+   "press": 3,
+   "sensor_S2": "released",
+   "display": "CRC OK, 22.07 degC",
+   "led": "yellow"
+  },
+  {
+   "press": 4,
+   "sensor_S2": "released",
+   "display": "CRC OK, 22.17 degC",
+   "led": "yellow"
+  }
+ ],
+ "method": "Button presses simulated with the debugger by setting IOMUX INV on display S1 (PA18) and sensor S2 (PB21); LED state read from GPIOB DOUT. See simulate_presses.py.",
+ "not_verified": [
+  "Physical button presses (simulated only)",
+  "Blue band (requires cooling below 20 degC)",
+  "Absolute temperature accuracy beyond the factory single-point trim",
+  "CCS project build (standalone tools/board build used)"
+ ]
+}

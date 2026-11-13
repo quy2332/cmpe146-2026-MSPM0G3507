@@ -1,5 +1,5 @@
 # Preserve recorded hardware evidence byte-for-byte.
-exclude: ^lab[34]_[^/]+/evidence/
+exclude: ^lab[345]_[^/]+/evidence/
 
 repos:
   # General file fixes

@@ -1,0 +1,21 @@
+[  0.85] 
+[  0.85] LaunchPad UART console: 115200 baud, 8N1
+[  0.85] 
+[  0.85] Lab 5: ADC + UART + CRC (FreeRTOS)
+[  0.85] 
+[  0.85] LaunchPad UART console: 115200 baud, 8N1
+[  0.85] 
+[  0.85] Lab 5: ADC + UART + CRC (FreeRTOS)
+[  0.85] Role: SENSOR. UART1 115200 baud on PA8 (TX) / PA9 (RX)
+[  0.85] TEMP_SENSE0 = 792 (12-bit code at 30 degC, VDDA ref)
+[  0.85] Hold S2 while a request arrives to flip one bit.
+[  0.90] CRC self-test "123456789": hardware 0xCBF43926, software 0xCBF43926, expected 0xCBF43926
+[  4.12] #1: avg 23.02 degC (min 22.39, max 23.73), mean code 807.59, ADC+DMA 1364 us
+[  4.12]   CRC hw 0x2D69F18A in 27031 ns, sw 0x2D69F18A in 309375 ns (11x faster) match
+[  5.53] #2: avg 22.18 degC (min 21.50, max 22.84), mean code 809.46, ADC+DMA 1364 us
+[  5.53]   CRC hw 0xF49BAB70 in 27031 ns, sw 0xF49BAB70 in 309375 ns (11x faster) match
+[  5.53]   S2 held: flipped payload bit 74 before sending
+[  6.88] #3: avg 22.07 degC (min 21.50, max 22.39), mean code 809.71, ADC+DMA 1364 us
+[  6.88]   CRC hw 0xCE23D6BF in 27031 ns, sw 0xCE23D6BF in 309375 ns (11x faster) match
+[  8.24] #4: avg 22.17 degC (min 21.94, max 22.84), mean code 809.50, ADC+DMA 1364 us
+[  8.24]   CRC hw 0x3F178A73 in 27031 ns, sw 0x3F178A73 in 309375 ns (11x faster) match
