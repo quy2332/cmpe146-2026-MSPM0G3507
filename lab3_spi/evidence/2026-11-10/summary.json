@@ -1,0 +1,26 @@
+{
+  "timestamp_utc": "2026-11-10T23:03:25.252498+00:00",
+  "result": "PASS with logic analyzer attached and present wiring",
+  "board": "LP-MSPM0G3507",
+  "firmware": "lab3_spi/Debug/uart/lab3_spi.bin",
+  "firmware_sha256": "b0dd5738c39e5b3b681a55d6acc4a7e195f00f21fba256cbf2fe8855060e328d",
+  "jedec_id": "EF 40 16",
+  "capacity_bytes": 4194304,
+  "configured_spi_hz": 1000000,
+  "measured_spi_hz_approx": 1009562,
+  "functional_tests_passed": 17,
+  "waveform_sector_verification_bytes": 4096,
+  "bytes_after_first_block_preserved": true,
+  "reset_persistence_verified_on_uart_and_spi": true,
+  "stored_text": "LAB3 PASS: MSPM0G3507 SPI FLASH!",
+  "imu_remained_connected": true,
+  "user_measured_supply_volts": 3.25,
+  "files": {
+    "functional": "functional-tests.json",
+    "write_capture": "write-verified.sr",
+    "startup_capture": "startup-verified.sr",
+    "waveform_verification": "waveform-verification.json",
+    "uart": "uart.log"
+  },
+  "limitations": "Earlier inconsistent reads and failed write verification stopped after analyzer hookup/reconnection without a source change. Exact cause was not isolated. Passing results apply to the present physical setup; operation after removing analyzer probes has not been retested. Reset persistence is verified; a complete power-cycle retention test has not been performed with the final text."
+}

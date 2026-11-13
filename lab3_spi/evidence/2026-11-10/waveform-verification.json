@@ -1,0 +1,30 @@
+{
+  "capture": "write-verified.sr",
+  "sample_rate_hz": 12000000,
+  "configured_spi_hz": 1000000,
+  "measured_clock_hz": 1009562.3957779391,
+  "clock_period_samples_distribution": {
+    "12": 53705,
+    "11": 6887
+  },
+  "frame_count": 69,
+  "command_counts": {
+    "05": 47,
+    "03": 18,
+    "06": 2,
+    "20": 1,
+    "02": 1
+  },
+  "sector_erase_observed": true,
+  "program_frames": [
+    {
+      "address": 0,
+      "bytes": 256
+    }
+  ],
+  "all_4096_readback_bytes_match": true,
+  "bytes_32_through_4095_preserved": true,
+  "verified_read_pages": 16,
+  "stored_text": "LAB3 PASS: MSPM0G3507 SPI FLASH!",
+  "capture_sha256": "fe9141f0638313f11944813e58db6414f85c5ccd76e9899f9bd1e9f5bf11b8a3"
+}
