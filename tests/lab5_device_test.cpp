@@ -100,10 +100,10 @@ void test_crc_detects_every_single_bit_flip()
 
 void test_colors_and_text()
 {
-  assert(color_for(1999) == led_color::blue);
-  assert(color_for(2000) == led_color::yellow);
-  assert(color_for(2599) == led_color::yellow);
-  assert(color_for(2600) == led_color::red);
+  assert(color_for(1599) == led_color::blue);
+  assert(color_for(1600) == led_color::yellow);
+  assert(color_for(2499) == led_color::yellow);
+  assert(color_for(2500) == led_color::red);
   assert(std::strcmp(color_name(led_color::magenta), "magenta (CRC error)") ==
          0);
   assert(std::strcmp(format_centi_degrees(2373).text.data(), "23.73") == 0);

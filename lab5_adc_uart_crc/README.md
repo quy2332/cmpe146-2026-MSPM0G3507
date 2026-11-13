@@ -231,8 +231,11 @@ console.
    CRC self-test on `123456789` (`0xCBF43926` from both engines).
 4. Press S1 or S2 on the display board. The sensor prints the batch average,
    the ADC+DMA time, and both CRC times; the display prints the average and
-   sets the LED: blue below 20 degC, yellow up to 26 degC, red from 26 degC.
+   sets the LED: blue below 16 degC, yellow up to 25 degC, red from 25 degC.
    A fingertip on the sensor board's MCU turns it red within a few presses.
+   The conversion uses the 3.3 V USB supply as its reference (as the factory
+   calibration does), so a sagging supply reads cold: at 3.09 V the boards
+   read about -2 degC. Healthy boards read 20-23 degC at rest.
 5. Hold S2 on the sensor board and press a button on the display board. The
    sensor flips one payload bit after computing the CRC; the display prints
    `CRC MISMATCH ... Packet dropped` and turns the LED magenta.

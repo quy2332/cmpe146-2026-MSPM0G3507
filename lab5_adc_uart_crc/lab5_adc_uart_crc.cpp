@@ -243,13 +243,14 @@ enum class led_color : std::uint8_t
   magenta,
 };
 
-// Display color bands, in centi-degC. These are die temperatures: the two
-// test boards idled at 22-24 degC on a desk (yellow), a fingertip on the MCU
-// pushes it past 26 degC (red), and a cold pack pulls it under 20 degC
-// (blue). The factory trim alone is only good to a few degC, so these bands
-// are deliberately wide.
-constexpr std::int32_t cold_below = 2000;  // < 20.00 degC is blue
-constexpr std::int32_t hot_from = 2600;    // >= 26.00 degC is red
+// Display color bands, in centi-degC. These are die temperatures. The
+// conversion uses the VDDA (USB 3.3 V) reference that TEMP_SENSE0 was
+// measured with, so a supply that sags by 0.1 V reads about 12 degC cold;
+// the boards read 20-23 degC at rest on a healthy supply. The wide yellow
+// band keeps a resting board yellow, a fingertip on the MCU pushes it to
+// red, and a cold pack is needed for blue.
+constexpr std::int32_t cold_below = 1600;  // < 16.00 degC is blue
+constexpr std::int32_t hot_from = 2500;    // >= 25.00 degC is red
 
 led_color color_for(std::int32_t p_centi_degrees)
 {
