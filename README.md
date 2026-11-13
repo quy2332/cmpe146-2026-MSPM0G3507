@@ -15,7 +15,7 @@ repo's folder:
    the Explorer overflow menu) to open `cmpe146_mspm0g3507.theia-workspace`
    from the folder you cloned this repo into.
 
-> [!NOTE] 
+> [!NOTE]
 > CCS Theia only allows one project of a given name per open workspace. Every
 > lab in this repo is named `labN_*` to match the same lab in the sibling
 > [cmpe146-2026-MSP-EXP432P401R](https://github.com/kammce/cmpe146-2026-MSP-EXP432P401R)
